@@ -1,3 +1,47 @@
+import { StatusBar } from 'expo-status-bar';
+import { StyleSheet, Text, View } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import {createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+
+const tab = createBottomTabNavigator();
+
+function AccueilScreen() {
+  return (<View style={styles.container}>
+    <Text>Welcome to REACT native</Text>
+    <StatusBar style="auto" />
+  </View>);
+}
+
+function ContactScreen() {
+  return (<View style={styles.container}>
+    <Text>Leave a message here</Text>
+    <StatusBar style="auto" />
+  </View>);
+}
+
+export default function App() {
+
+  return (
+    <NavigationContainer>
+      <tab.Navigator>
+       <tab.Screen name="Home" component={AccueilScreen} options={{ title: 'Accueil' }}/> 
+       <tab.Screen name="Contact" component={ContactScreen} options={{ title: 'Call us' }}/> 
+      </tab.Navigator>
+    </NavigationContainer>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+});
+
+
+/*
 import * as React from 'react';
 import {Button,Text } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
